@@ -1,3 +1,9 @@
+type Query {
+  adminLogin(
+    admin: adminLoginInput!
+  ): adminLoginOutput
+}
+
 type Mutation {
   adminRegister(
     admin: AdminRegisterInput!
@@ -9,7 +15,16 @@ input AdminRegisterInput {
   password: String!
 }
 
+input adminLoginInput {
+  username: String!
+  password: String!
+}
+
 type AdminRegisterOutput {
+  accessToken: String!
+}
+
+type adminLoginOutput {
   accessToken: String!
 }
 

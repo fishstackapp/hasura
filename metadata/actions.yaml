@@ -1,4 +1,12 @@
 actions:
+  - name: adminLogin
+    definition:
+      kind: ""
+      handler: http://host.docker.internal:8888/.netlify/functions/admin-login
+      forward_client_headers: true
+    permissions:
+      - role: guest
+    comment: Admin login
   - name: adminRegister
     definition:
       kind: synchronous
@@ -12,6 +20,8 @@ custom_types:
   enums: []
   input_objects:
     - name: AdminRegisterInput
+    - name: adminLoginInput
   objects:
     - name: AdminRegisterOutput
+    - name: adminLoginOutput
   scalars: []
