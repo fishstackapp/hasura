@@ -1,0 +1,17 @@
+actions:
+  - name: adminRegister
+    definition:
+      kind: synchronous
+      handler: http://host.docker.internal:8888/.netlify/functions/admin-register
+      forward_client_headers: true
+      headers:
+        - name: x-fishstack-secret-key
+          value: secret-key
+    comment: Admin registration
+custom_types:
+  enums: []
+  input_objects:
+    - name: AdminRegisterInput
+  objects:
+    - name: AdminRegisterOutput
+  scalars: []

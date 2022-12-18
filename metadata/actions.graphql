@@ -1,0 +1,15 @@
+type Mutation {
+  adminRegister(
+    admin: AdminRegisterInput!
+  ): AdminRegisterOutput
+}
+
+input AdminRegisterInput {
+  username: String!
+  password: String!
+}
+
+type AdminRegisterOutput {
+  accessToken: String!
+}
+
