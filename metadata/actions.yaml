@@ -1,5 +1,5 @@
 actions:
-  - name: AdminGetMe
+  - name: adminGetMe
     definition:
       kind: ""
       handler: http://host.docker.internal:8888/.netlify/functions/admin-get-me
@@ -21,6 +21,11 @@ actions:
         - name: x-fishstack-secret-key
           value: secret-key
     comment: Admin registration
+  - name: cloudinariSignature
+    definition:
+      kind: ""
+      handler: http://host.docker.internal:8888/.netlify/functions/cloud-signature
+      forward_client_headers: true
 custom_types:
   enums: []
   input_objects:
@@ -32,4 +37,5 @@ custom_types:
     - name: adminLoginOutput
     - name: SampleOutput
     - name: AdminGetMeOutput
+    - name: cloudinariSignatureOutput
   scalars: []

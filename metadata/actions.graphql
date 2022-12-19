@@ -1,5 +1,5 @@
 type Query {
-  AdminGetMe: AdminGetMeOutput
+  adminGetMe: AdminGetMeOutput
 }
 
 type Query {
@@ -12,6 +12,10 @@ type Mutation {
   adminRegister(
     admin: AdminRegisterInput!
   ): AdminRegisterOutput
+}
+
+type Query {
+  cloudinariSignature: cloudinariSignatureOutput
 }
 
 input AdminRegisterInput {
@@ -44,5 +48,13 @@ type SampleOutput {
 type AdminGetMeOutput {
   id: String!
   username: String!
+}
+
+type cloudinariSignatureOutput {
+  apiKey: String!
+  cloudName: String!
+  signature: String!
+  timestamp: Int!
+  publicId: String!
 }
 
