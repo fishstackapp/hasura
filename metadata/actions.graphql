@@ -1,4 +1,8 @@
 type Query {
+  AdminGetMe: AdminGetMeOutput
+}
+
+type Query {
   adminLogin(
     admin: adminLoginInput!
   ): adminLoginOutput
@@ -20,11 +24,25 @@ input adminLoginInput {
   password: String!
 }
 
+input SampleInput {
+  username: String!
+  password: String!
+}
+
 type AdminRegisterOutput {
   accessToken: String!
 }
 
 type adminLoginOutput {
   accessToken: String!
+}
+
+type SampleOutput {
+  accessToken: String!
+}
+
+type AdminGetMeOutput {
+  id: String!
+  username: String!
 }
 

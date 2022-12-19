@@ -1,4 +1,9 @@
 actions:
+  - name: AdminGetMe
+    definition:
+      kind: ""
+      handler: http://host.docker.internal:8888/.netlify/functions/admin-get-me
+      forward_client_headers: true
   - name: adminLogin
     definition:
       kind: ""
@@ -21,7 +26,10 @@ custom_types:
   input_objects:
     - name: AdminRegisterInput
     - name: adminLoginInput
+    - name: SampleInput
   objects:
     - name: AdminRegisterOutput
     - name: adminLoginOutput
+    - name: SampleOutput
+    - name: AdminGetMeOutput
   scalars: []
