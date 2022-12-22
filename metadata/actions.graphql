@@ -4,8 +4,8 @@ type Query {
 
 type Query {
   adminLogin(
-    admin: adminLoginInput!
-  ): adminLoginOutput
+    admin: AdminLoginInput!
+  ): AdminLoginOutput
 }
 
 type Mutation {
@@ -15,7 +15,7 @@ type Mutation {
 }
 
 type Query {
-  cloudinariSignature: cloudinariSignatureOutput
+  cloudinarySignature: CloudinarySignatureOutput
 }
 
 input AdminRegisterInput {
@@ -23,25 +23,34 @@ input AdminRegisterInput {
   password: String!
 }
 
-input adminLoginInput {
+input AdminLoginInput {
   username: String!
   password: String!
 }
 
-input SampleInput {
-  username: String!
-  password: String!
+input CustomerLoginInput {
+  phoneNumber: String!
+}
+
+input CustomerVerifyCodeInput {
+  phoneNumber: String!
+  code: String!
+}
+
+input CreateOrderInput {
+  client_address: String!
+  client_name: String!
+  client_phone: String!
+  comment: String
+  payment_type: String
+  items: String!
 }
 
 type AdminRegisterOutput {
   accessToken: String!
 }
 
-type adminLoginOutput {
-  accessToken: String!
-}
-
-type SampleOutput {
+type AdminLoginOutput {
   accessToken: String!
 }
 
@@ -50,11 +59,24 @@ type AdminGetMeOutput {
   username: String!
 }
 
-type cloudinariSignatureOutput {
+type CloudinarySignatureOutput {
   apiKey: String!
   cloudName: String!
   signature: String!
   timestamp: Int!
   publicId: String!
+}
+
+type CustomerLoginOutput {
+  status: String!
+}
+
+type CustomerVerifyCodeOutput {
+  accessToken: String!
+}
+
+type CreateOrderOutput {
+  id: String!
+  checkout_url: String
 }
 

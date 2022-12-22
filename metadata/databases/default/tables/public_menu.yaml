@@ -1,14 +1,3 @@
 table:
   name: menu
   schema: public
-select_permissions:
-  - role: guest
-    permission:
-      columns:
-        - price
-        - weight
-        - descriptions
-        - image
-        - title
-        - id
-      filter: {}

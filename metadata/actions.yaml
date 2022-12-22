@@ -4,13 +4,12 @@ actions:
       kind: ""
       handler: http://host.docker.internal:8888/.netlify/functions/admin-get-me
       forward_client_headers: true
+    comment: Admin get me
   - name: adminLogin
     definition:
       kind: ""
       handler: http://host.docker.internal:8888/.netlify/functions/admin-login
       forward_client_headers: true
-    permissions:
-      - role: guest
     comment: Admin login
   - name: adminRegister
     definition:
@@ -19,23 +18,28 @@ actions:
       forward_client_headers: true
       headers:
         - name: x-fishstack-secret-key
-          value: secret-key
-    comment: Admin registration
-  - name: cloudinariSignature
+          value: mysecretkey
+    comment: Admin register
+  - name: cloudinarySignature
     definition:
       kind: ""
       handler: http://host.docker.internal:8888/.netlify/functions/cloud-signature
       forward_client_headers: true
+    comment: Cloud signature
 custom_types:
   enums: []
   input_objects:
     - name: AdminRegisterInput
-    - name: adminLoginInput
-    - name: SampleInput
+    - name: AdminLoginInput
+    - name: CustomerLoginInput
+    - name: CustomerVerifyCodeInput
+    - name: CreateOrderInput
   objects:
     - name: AdminRegisterOutput
-    - name: adminLoginOutput
-    - name: SampleOutput
+    - name: AdminLoginOutput
     - name: AdminGetMeOutput
-    - name: cloudinariSignatureOutput
+    - name: CloudinarySignatureOutput
+    - name: CustomerLoginOutput
+    - name: CustomerVerifyCodeOutput
+    - name: CreateOrderOutput
   scalars: []
