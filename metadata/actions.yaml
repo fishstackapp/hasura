@@ -10,7 +10,9 @@ actions:
       kind: ""
       handler: http://host.docker.internal:8888/.netlify/functions/admin-login
       forward_client_headers: true
-    comment: Admin login
+    permissions:
+      - role: guest
+    comment: Login admin
   - name: adminRegister
     definition:
       kind: synchronous
@@ -19,7 +21,7 @@ actions:
       headers:
         - name: x-fishstack-secret-key
           value: mysecretkey
-    comment: Admin register
+    comment: Admin registration
   - name: cloudinarySignature
     definition:
       kind: ""
