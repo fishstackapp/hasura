@@ -2,13 +2,13 @@ actions:
   - name: adminGetMe
     definition:
       kind: ""
-      handler: http://host.docker.internal:8888/.netlify/functions/admin-get-me
+      handler: '{{HASURA_ACTIONS_ENDPOINT}}/admin-get-me'
       forward_client_headers: true
     comment: Admin get me
   - name: adminLogin
     definition:
       kind: ""
-      handler: http://host.docker.internal:8888/.netlify/functions/admin-login
+      handler: '{{HASURA_ACTIONS_ENDPOINT}}/admin-login'
       forward_client_headers: true
     permissions:
       - role: guest
@@ -16,16 +16,16 @@ actions:
   - name: adminRegister
     definition:
       kind: synchronous
-      handler: http://host.docker.internal:8888/.netlify/functions/admin-register
+      handler: '{{HASURA_ACTIONS_ENDPOINT}}/admin-register'
       forward_client_headers: true
       headers:
         - name: x-fishstack-secret-key
-          value: mysecretkey
+          value_from_env: HASURA_FISHSTACK_SECRET
     comment: Admin registration
   - name: cloudinarySignature
     definition:
       kind: ""
-      handler: http://host.docker.internal:8888/.netlify/functions/cloud-signature
+      handler: '{{HASURA_ACTIONS_ENDPOINT}}/cloud-signature'
       forward_client_headers: true
     comment: Cloudinary signature
 custom_types:
