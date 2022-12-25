@@ -27,7 +27,7 @@ actions:
       kind: ""
       handler: http://host.docker.internal:8888/.netlify/functions/cloud-signature
       forward_client_headers: true
-    comment: Cloud signature
+    comment: Cloudinary signature
 custom_types:
   enums: []
   input_objects:
