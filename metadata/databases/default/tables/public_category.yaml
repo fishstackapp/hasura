@@ -1,0 +1,13 @@
+table:
+  name: category
+  schema: public
+array_relationships:
+  - name: menu_items
+    using:
+      manual_configuration:
+        column_mapping:
+          id: cetegory_id
+        insertion_order: null
+        remote_table:
+          name: menu
+          schema: public
