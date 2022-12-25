@@ -34,5 +34,3 @@ services:
       HASURA_FISHSTACK_SECRET: mysecretkey
 volumes:
   db_data:
-# HASURA_FISHSTACK_SECRET
-# mysecretkey
