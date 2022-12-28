@@ -16,7 +16,5 @@ jobs:
 
       - name: Deploy 🚀
         run: |
-          npx hasura migrate apply --endpoint https://fishstack.hasura.app/ --admin-secret ${{ secrets.HASURA_GRAPHQL_ADMIN_SECRET }} 
-          --database-name default
+          npx hasura migrate apply --endpoint https://fishstack.hasura.app/ --admin-secret ${{ secrets.HASURA_GRAPHQL_ADMIN_SECRET }} --database-name default
           npx hasura metadata apply --endpoint https://fishstack.hasura.app/ --admin-secret ${{ secrets.HASURA_GRAPHQL_ADMIN_SECRET }}
-
