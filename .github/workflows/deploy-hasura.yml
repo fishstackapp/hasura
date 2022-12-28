@@ -6,13 +6,14 @@ jobs:
   deploy-hasura:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout 🛎️
         uses: actions/checkout@v3
 
-      - name: Install packages
-        uses: actions/setup-node@v3
+      - name: Install 🔧
+        run: |
+          npm install
 
-      - name: Deploy
+      - name: Deploy 🚀
         run: |
           npm run hasura migrate apply --endpoint https://fishstack.hasura.app/ --admin-secret ${{ secrets.HASURA_GRAPHQL_ADMIN_SECRET }} 
           --database-name default
