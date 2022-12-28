@@ -12,6 +12,7 @@ jobs:
       - name: Install 🔧
         run: |
           npm install
+          npx hasura update-cli
 
       - name: Deploy 🚀
         run: |
