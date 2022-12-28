@@ -32,5 +32,6 @@ services:
       HASURA_GRAPHQL_JWT_SECRET: '{"type": "HS256", "key": "9PC62hi1eXCt5RJ2lNeV3fTYLBeywbf7"}'
       HASURA_ACTIONS_ENDPOINT: http://host.docker.internal:8888/.netlify/functions
       HASURA_FISHSTACK_SECRET: mysecretkey
+      HASURA_FAKE_ORDERS_FORCE_CREATE: 'true'
 volumes:
   db_data:

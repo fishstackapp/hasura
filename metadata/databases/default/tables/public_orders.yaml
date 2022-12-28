@@ -1,0 +1,19 @@
+table:
+  name: orders
+  schema: public
+array_relationships:
+  - name: order_items
+    using:
+      manual_configuration:
+        column_mapping:
+          id: order_id
+        insertion_order: null
+        remote_table:
+          name: orders_menu
+          schema: public
+computed_fields:
+  - name: sum
+    definition:
+      function:
+        name: sum_by_order
+        schema: public

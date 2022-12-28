@@ -1,0 +1,9 @@
+table:
+  name: settings
+  schema: public
+select_permissions:
+  - role: guest
+    permission:
+      columns:
+        - snacks_category
+      filter: {}

@@ -15,10 +15,11 @@ select_permissions:
   - role: guest
     permission:
       columns:
-        - price
-        - weight
+        - category_id
         - descriptions
-        - image
-        - title
         - id
+        - image
+        - price
+        - title
+        - weight
       filter: {}

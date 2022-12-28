@@ -11,3 +11,11 @@ array_relationships:
         remote_table:
           name: menu
           schema: public
+select_permissions:
+  - role: guest
+    permission:
+      columns:
+        - slug
+        - title
+        - id
+      filter: {}
