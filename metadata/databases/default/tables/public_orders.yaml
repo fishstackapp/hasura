@@ -1,6 +1,10 @@
 table:
   name: orders
   schema: public
+object_relationships:
+  - name: order_status
+    using:
+      foreign_key_constraint_on: status
 array_relationships:
   - name: order_items
     using:

@@ -1,0 +1,14 @@
+table:
+  name: customers
+  schema: public
+select_permissions:
+  - role: user
+    permission:
+      columns:
+        - address
+        - id
+        - name
+        - phone
+      filter:
+        id:
+          _eq: X-Hasura-User-Id

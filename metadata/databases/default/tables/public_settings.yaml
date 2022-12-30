@@ -8,3 +8,9 @@ select_permissions:
         - id
         - snacks_category
       filter: {}
+  - role: user
+    permission:
+      columns:
+        - id
+        - snacks_category
+      filter: {}
