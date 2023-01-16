@@ -2,9 +2,15 @@ table:
   name: orders
   schema: public
 object_relationships:
-  - name: order_status
+  - name: customer
     using:
-      foreign_key_constraint_on: status
+      manual_configuration:
+        column_mapping:
+          client_phone: phone
+        insertion_order: null
+        remote_table:
+          name: customers
+          schema: public
 array_relationships:
   - name: order_items
     using:
@@ -21,3 +27,24 @@ computed_fields:
       function:
         name: sum_by_order
         schema: public
+event_triggers:
+  - name: create_user_after_order_submited
+    definition:
+      enable_manual: false
+      insert:
+        columns: '*'
+    retry_conf:
+      interval_sec: 10
+      num_retries: 0
+      timeout_sec: 60
+    webhook_from_env: HASURA_EVENT_WEBHOOK_HANDLER
+    headers:
+      - name: x-fishstack-secret-key
+        value_from_env: HASURA_FISHSTACK_SECRET
+    cleanup_config:
+      batch_size: 10000
+      clean_invocation_logs: false
+      clear_older_than: 168
+      paused: true
+      schedule: 0 0 * * *
+      timeout: 60

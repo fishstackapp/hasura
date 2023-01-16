@@ -28,6 +28,16 @@ actions:
       handler: '{{HASURA_ACTIONS_ENDPOINT}}/cloud-signature'
       forward_client_headers: true
     comment: Cloudinary signature
+  - name: createOrder
+    definition:
+      kind: synchronous
+      handler: '{{HASURA_ACTIONS_ENDPOINT}}/create-order'
+      headers:
+        - name: x-fishstack-secret-key
+          value_from_env: HASURA_FISHSTACK_SECRET
+    permissions:
+      - role: user
+      - role: guest
   - name: customerLogin
     definition:
       kind: ""
