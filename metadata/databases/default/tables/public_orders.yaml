@@ -27,8 +27,26 @@ computed_fields:
       function:
         name: sum_by_order
         schema: public
+select_permissions:
+  - role: user
+    permission:
+      columns:
+        - id
+        - client_name
+        - client_phone
+        - client_address
+        - status
+        - created_at
+        - comment
+        - payment_type
+      computed_fields:
+        - sum
+      filter:
+        customer:
+          id:
+            _eq: X-Hasura-User-Id
 event_triggers:
-  - name: create_user_after_order_submited
+  - name: order_created
     definition:
       enable_manual: false
       insert:
