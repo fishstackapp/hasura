@@ -2,7 +2,7 @@
   "name": "hasura",
   "version": "0.1.0",
   "scripts": {
-    "start": "hasura console --admin-secret myadminsecretkey"
+    "start": "hasura console --admin-secret myadminsecretkey --skip-update-check"
   },
   "license": "ISC",
   "devDependencies": {
