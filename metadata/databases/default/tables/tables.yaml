@@ -6,5 +6,6 @@
 - "!include public_order_status.yaml"
 - "!include public_orders.yaml"
 - "!include public_orders_menu.yaml"
+- "!include public_payment_status.yaml"
 - "!include public_payment_types.yaml"
 - "!include public_settings.yaml"

@@ -31,14 +31,15 @@ select_permissions:
   - role: user
     permission:
       columns:
-        - id
+        - client_address
         - client_name
         - client_phone
-        - client_address
-        - status
-        - created_at
         - comment
+        - created_at
+        - id
+        - payment_status
         - payment_type
+        - status
       computed_fields:
         - sum
       filter:
@@ -50,6 +51,26 @@ event_triggers:
     definition:
       enable_manual: false
       insert:
+        columns: '*'
+    retry_conf:
+      interval_sec: 10
+      num_retries: 0
+      timeout_sec: 60
+    webhook_from_env: HASURA_EVENT_WEBHOOK_HANDLER
+    headers:
+      - name: x-fishstack-secret-key
+        value_from_env: HASURA_FISHSTACK_SECRET
+    cleanup_config:
+      batch_size: 10000
+      clean_invocation_logs: false
+      clear_older_than: 168
+      paused: true
+      schedule: 0 0 * * *
+      timeout: 60
+  - name: order_updated
+    definition:
+      enable_manual: false
+      update:
         columns: '*'
     retry_conf:
       interval_sec: 10
