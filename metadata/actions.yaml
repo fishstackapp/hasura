@@ -49,7 +49,6 @@ actions:
           value_from_env: HASURA_FISHSTACK_SECRET
     permissions:
       - role: guest
-    comment: Customer login
   - name: customerVerifyCode
     definition:
       kind: ""

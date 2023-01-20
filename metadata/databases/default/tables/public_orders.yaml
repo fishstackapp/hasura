@@ -11,6 +11,15 @@ object_relationships:
         remote_table:
           name: customers
           schema: public
+  - name: order_status
+    using:
+      foreign_key_constraint_on: status
+  - name: paymentStatusByPaymentStatus
+    using:
+      foreign_key_constraint_on: payment_status
+  - name: paymentTypeByPaymentType
+    using:
+      foreign_key_constraint_on: payment_type
 array_relationships:
   - name: order_items
     using:
